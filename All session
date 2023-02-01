@@ -1,0 +1,185 @@
+1ac6c39d7754366a1bb51f1f1b52df3
+https://www.devopsschool.com/
+
+CI means 
+	auto build-auto test
+if disabled none of the pool scm & git web hook wont work.
+
+post build actions -can perform java code analysis.
+
+Jenkins directory structure:
+----------------------------
+/var/lib/jenins	default jenkins home directory
+
+				/jobs inside we get the jobs
+depends on number ofenvironmnet number of jobs are created
+
+jobs
+---
+facebook-qa
+facebook-dev
+	nextbuildNumber-next coing build
+		build->dir
+log file contains which user created and deleted usin audit trail
+
+maven project:
+---------------
+Plugin
+-------------------------------
+
+Jenkins 4
+
+Deploy to container: deploy on tomcat, jboss server we do use
+wild fly & Jboss both are same.
+jenkins/restart		: using jenkins url can do
+ulr/safeRestart		: 
+
+for admin : we get Manage Jenkins
+Urban code deployment:
+in pom.xml we configure sonarqube scanner
+
+Audit trail plugin : give the details about which user triggered the job
+
+configure where the data about user will be created
+/var/lib/jenkins/audit-trail.log	of size 10MB
+log0
+log1
+..
+we can speciffy the count file.
+
+Software development Model- Waterfall->AGile-> Devops
+Software Dev ARchitecture= Monolithic->SOA->Microservices
+
+Objective of Devop:
+	Immediate Release
+	cost reduction
+	improving quality
+Jenkins will give CI
+	CI= auto build & auto test
+		we get immediate feedback
+SDLC
+	plan-code-code review-Build-UT(unit testing)-Packages-Archiving(Artifactory)-Deploy to QA -A Test->code coverage
+		code review= sonarqube
+	packages system packages : rpm,debian,
+	application packages: jar,war,ear,zip,tar,
+	
+	Problem between packing & testing:Deploy 2 QA will be missing
+	
+	for 1 microservices, 10 packages, n number of packages are created.
+Deployment 2 QA
+---------------------
+1 deployment 9 min
+100 dep 9 min
+tool can do the parallel deployment: ANSIBLE
+	ANSIBLE: configuration management help you to coding
+			deployment to all environment will be performed using :Ansible
+
+1000 deployment in 1 sec
+Docker & Kubernetes
+
+after deployment we do Testing
+
+Code coverage: 
+	code coverage keep on reading run time environment.
+	test cases to coverage of code process(jacoco,encover)
+acceptance
+plan-code-code review-Build-UT(unit testing)-Packages-Archiving(Artifactory)-Deploy to QA -A Test->code coverage
+Jira-git-sonarqube-maven-Junit-jar-Artifactory-Ansible-Selenium-Jacoco
+
+all this will go automated work,
+
+Architect-Developer-BR Team-QA Team-Operaton team
+		Intergrate All phases	- CD Devops
+		Integrate ALl tools
+		Intergrate ALL people	Devops
+			for all this we do use JENKINS
+Jenkins has scheduling feature, testig
+---------------------------------------------------------
+
+session 2
+
+Jenkins:
+	Integrate tools
+	way to automate manual steps
+	scheduling
+	Immediate feedback(gmail, chat)
+pipeline is nothing but integration.
+	what ever tools can be integrated on to jenkins.
+Immediate feedback
+Pipeline is nothing but integration.
+"features of jenkins through Plugin" powered by plugin
+	cloudbees offer the available by "prod Ready Plugin"- it is in enterprise edition paid
+	
+	Other Than jenkins: Bamboo, TravisCI, Teamcity
+prerequisite: JRE+JDK
+
+Front end Based on GUI
+
+Using GUI can do:
+		Integrating tools
+		automate manual steps
+		scheduling
+		Immediate feedback
+Backend(Slave or worker):
+		will do all building, code review,
+divided in to 2 
+		WEB
+		Node(master) can add slaves here to perform operation
+		slaves can be linux or windows
+Jenkins steps:
+	Way to automate manual steps
+	scheduling
+	imeddiate feedback
+	integration tools
+Manage jenkins--Manage tools
+
+Secret formula to use/work with Jenkins:
+-----------------------------
+what is your technology(java,.net.python, ruby, .net)
+		what version do we use
+		all may be any of the master or any node, and must be installed on any of the node.
+where is the code?
+	git
+	svn
+	p4
+	tfs
+		what is the repo location and access(user id & password)
+what is your builder:
+	anything
+	maven,gradle, shell script
+	for maven	pom.xml			goals: compile test package install deploy clean
+		ant build.xml			target
+		gradle gradle.build		step:
+		msbuild defauilt.msbuild target
+
+How frequently you want this job be triggered:
+	hourly bases
+
+How you want feedback:
+	email- must configured
+
+check all the questions one by one:
+----------------------------------------
+steps:
+create New item
+	free style version:
+		
+	Build Triggers:
+		Build periodically	(for help ? click on it and get the help)
+		
+-------------------------------------------------
+
+Session 4
+
+default will be on Master
+reading the logs is good to have
+plugin is nothing but memory: functionality is available
+
+global tool configuration:
+if not available install plugin
+
+jenkins is not sent, 
+SMTP is used to send.
+
+
+it may that create separate job for each, or one job for all stages
